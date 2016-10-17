@@ -3,7 +3,8 @@
 <head>
 	<title>Batman Game</title>
 	
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -12,63 +13,93 @@
 </head>
 <body>
 
+ 	
 
 
+<div class="container-fluid">
 
-<div id="initialCharacters">
+	<div class="row" id="initialCharacters">
 
-<p> BATMAN </p>
-<img src="assets/images/batman_attacking.jpg" id="character_img_1" alt="Batman_pic">
-<p> "health: 80" </p>
+		<div class = "col-sm-3" id = "characterDiv-1">
+			<p> BATMAN </p>
+			<img src="assets/images/batman_attacking.jpg" id="character_img_1" alt="Batman_pic">
+			<p id="batman_health"> 80 </p>
+		</div>
 
-<p> JOKER </p>
-<img src="assets/images/joker.jpg" id="character_img_2" alt="Joker_pic">
-<p> "health: 100" </p>
+		<div class = "col-sm-3" id = "characterDiv-2">
+			<p> JOKER </p>
+			<img src="assets/images/joker.jpg" id="character_img_2" alt="Joker_pic">
+			<p id="joker_health"> 100</p>
+		</div>
 
 
-<p> SUPERMAN </p>
-<img src="assets/images/superman.jpg" id="character_img_3" alt="Superman_pic">
-<p> "health: 150" </p>
+		<div class = "col-sm-3" id = "characterDiv-3"> 
+			<p> SUPERMAN </p>
+			<img src="assets/images/superman.jpg" id="character_img_3" alt="Superman_pic">
+			<p id = "superman_health"> 150</p>
+		</div>
 
-<p> SCARECROW </p>
-<img src="assets/images/scarecrow.jpg" id="character_img_4" alt="Scarecrow_pic">
-<p> "health: 60" </p>
+		<div class = "col-sm-3" id = "characterDiv-4">
+			<p> SCARECROW </p>
+			<img src="assets/images/scarecrow.jpg" id="character_img_4" alt="Scarecrow_pic">
+			<p id = "scarecrow_health"> 60 </p>
+		</div>
+
+	</div>
 
 </div>
 
 
 
-<div id="yourCharacter">
-	<h1> Your Character</h1>
-	
-</div>
+<div class="container-fluid">
 
+	<div class="row" >
 
-<div id="enemiesAvailable">
-
-	<h1> Enemies Available to Attack </h1>
-
-<!-- 	<img src="assets/images/scarecrow.jpg" id="character_img_4" alt="Scarecrow_pic">
-	 -->
-</div>
-
-
-<div id="defender">
-	<h1> Defender </h1>
-	
+			<div class = "col-sm-4" id="yourCharacter">
+				<h1> Your Character</h1><br>
+			</div>
+		
+	</div>
 </div>
 
 
 
-<!-- Single button -->
-<div id= "fight_section">
 
-<h1> Fight Section </h1> <br>
+<div class="container-fluid">
+
+	<div class="row" >
+			<div class = "col-sm-12" id="enemiesAvailable">
+				<h1> Enemies Available to Attack </h1><br>
+			</div>
+	</div>
+</div>
+
+
+
+
+<div class="container-fluid">
+	<div class="row" >
+			<div class = "col-sm-4" id="defender_div">
+				<h1> Defender </h1>
+			</div>
+	</div>
+</div>
+
+
+
+<div class="container-fluid">
+	<div class="row" >
+			<div class = "col-sm-4" id= "fight_section">
+				<h1> Fight Section </h1> <br>
+			</div>
+	</div>
+</div>
+
 
 
 <div class="btn-group">
-  <button type="button" id = attack_button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Attack <span class="caret"></span>
+  <button type="button" id = attack_button class="btn btn-default"  aria-haspopup="true" aria-expanded="false">
+    Attack
   </button>
 </div>
 
@@ -76,6 +107,12 @@
 
 <p id = enemyCharacterFight> </p>
 
+
+<div class="btn-group">
+  <button type="button" id = restart_button class="btn btn-default"  aria-haspopup="true" aria-expanded="false">
+    Restart 
+  </button>
+</div>
 
 
 </div>

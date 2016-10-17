@@ -1,6 +1,53 @@
+
+body {
+	background-image: url("../images/batman_background_1.jpg");
+	background-color: #cccccc;
+	font-family: Oldtown,fantasy;
+	color: gold;
+}
+
+
+
 #character_img_1,#character_img_2,#character_img_3,#character_img_4 {
 
-	height: 200px;
-	width: 350px;
+	height: 80px;
+	width: 180px;
 
+}
+
+#characterDiv-1, #characterDiv-2,#characterDiv-3,#characterDiv-4
+
+{
+
+	height: 120px;
+	width: 200px;
+	border: solid 1px;
+	text-align: center;
+	padding: 5px;
+
+
+}
+
+#initialCharacters{
+
+	max-width: 960px;
+	height: 140px;
+}
+
+#yourCharacter{
+
+	max-width: 960px;
+	height: 165px;
+}
+
+
+#enemiesAvailable{
+
+	max-width: 960px;
+	/*height: 150px;*/
+}
+
+h1 {
+
+	font-size: 20px;
 }
