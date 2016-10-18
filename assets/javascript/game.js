@@ -1,15 +1,97 @@
 
+	
+		var batman = {
+				   name: "Batman",
+				   health: 80,
+				   attackPower: 10,
+				   attackPowerIncrement: 5,
+				   image: "batman_attacking.jpg",
+				   healthIndicator: $("#batman_health"),
+				   totalPower: function (counter) 
+				   		{
+					        return (batman.attackPower+(batman.attackPowerIncrement*counter));
+					    }
+				};
+
+		var joker = {
+		   name: "Joker",
+		   health: 100,
+		   attackPower: 15,
+		   attackPowerIncrement: 5,
+		   image: "joker.jpg",
+		   healthIndicator: "#joker_health",
+		   totalPower: function (counter) 
+				   		{
+					        return (joker.attackPower+(joker.attackPowerIncrement*counter));
+					    }
+		};
+
+		var superman = {
+		   name: "Superman",
+		   health: 150,
+		   attackPower: 25,
+		   attackPowerIncrement: 5,
+		   image: "superman.jpg",
+		   healthIndicator: $("#superman_health"),
+		   totalPower: function (counter) 
+				   		{
+					        return (superman.attackPower+(superman.attackPowerIncrement*counter));
+					    }
+		};
+
+		var scarecrow = {
+		   name: "Scarecrow",
+		   health: 60,
+		   attackPower: 8,
+		   attackPowerIncrement: 5,
+		   image: "scarecrow.jpg",
+		   healthIndicator: $("#scarecrow_health"),
+		   totalPower: function (counter) 
+				   		{
+					        return (scarecrow.attackPower+(scarecrow.attackPowerIncrement*counter));
+					    }
+		};
+
+function fighting (urCharacter, theDefender,x) 
+
+	{	
+		var urCharacterTotalPower = urCharacter.totalPower(x);
+		var urCharacterHealth  = urCharacter.health-(x*theDefender.attackPower);
+		var theDefenderHealth = theDefender.health-urCharacterTotalPower;
+
+		var urCharacterStatus = $("#yourCharacterFight");
+		var theDefenderStatus = $("#enemyCharacterFight");
+
+		var herohealth = $("urCharacter.healthIndicator");
+		var defenderhealth = $("theDefender.healthIndicator")
+
+		//console.log(herohealth);
+		//console.log(urCharacter.healthIndicator);
+		//console.log(defenderhealth);
+		//console.log(theDefender.healthIndicator);
+
+		urCharacterStatus.html("You attacked " + theDefender.name +"  for "+ urCharacterTotalPower + " damage");
+		
+		//(urCharacter.healthIndicator).html(" " + urCharacterHealth +"  ");
+		//herohealth.html(" " + urCharacterHealth +"  ");
+		console.log(urCharacterHealth);
+
+		theDefenderStatus.html(" " + theDefender.name + " attacked you for "+ theDefender.attackPower + " damage");
+		//defenderhealth.html(" " + theDefenderHealth +"  ");
+		console.log(theDefenderHealth);
+
+
+		//$("#joker_health").html(" " + newHealthJoker +"  ");
+
+	}
+
 	var defender ;
 	var defenderId;
 	var defenderClass;
 	var divIndex = 0;
 	var enemyName;
-	var batmanPower = 10;
-	var batmanPowerIncrement = 5;
-	var jokerPower = 15;
 	var counter = 0;
-	var batmanHealth = 80;
-	var jokerHealth = 100;
+	var jokerHealthUpated = 100;
 	var divcharacter; 
 	var characterId;
 	var characterSource;
@@ -18,10 +100,11 @@
 	var newdiv2;
 	var newdiv3;
 	var newdiv4;
-
 	var x;
 
-	// var one = $('#one');
+	
+
+	//var y = new Array(batman, joker, superman, scarecrow);// var one = $('#one');
 	// var two = $('#two');
 	// var three = $('#three');
 	// var four = $('#four');
@@ -39,23 +122,26 @@
 		{
 			alert("i'm at restart function!");
 
-			// initiate variables
+			
 			// reset back the divs 
+			$("#initialCharacters").append(x[0]);
+			$("#initialCharacters").append(x[1]);
+			$("#initialCharacters").append(x[2]);
+			$("#initialCharacters").append(x[3]);
+			
 
-			// $("#initialCharacters").append(x[0]);
+			 $("#yourCharacter div").empty();
+			 $("#yourCharacterFight").html(" ");
+		   	$("#enemyCharacterFight").html(" ");
+			 $("#enemiesAvailable div").empty();
+			 $("#defender_div div").empty();
+			 $("fight_section div").empty();
 
-			 $("#initialCharacters").append("<img id='character_img_1' src='assets/images/batman_attacking.jpg'/>");
-
-			 $("#yourCharacter").hide();
-			 $("#initialCharacters").append(x[1]);
-			 $("#initialCharacters").append(x[2]);
-			 $("#initialCharacters").append(x[3]);
-
-
-
-			// $("#enemiesAvailable").hide();
-			// $("#defender_div").hide();
-			// $("fight_section").hide();
+			// initiate variables
+			 $("#batman_health").html(" " + batman.health +"  ");
+			 $("#joker_health").html(" " + joker.health +"  ");
+			 $("#superman_health").html(" " + superman.health +"  ");
+			 $("#scarecrow_health").html(" " + scarecrow.health +"  ");
 
 		}
 
@@ -74,17 +160,15 @@
 
 			$("#initialCharacters").on("click", "div", function(){
 
-				
-
 				 divIndex = $("#initialCharacters div").index(this);
 
 
 				if (divIndex === 0) {
 
-					 $("#initialCharacters").hide();
+					 $("#initialCharacters").empty();
 
 					  newdiv1 = jQuery(this);
-					 console.log(newdiv1);
+					// console.log(newdiv1);
           			$("#yourCharacter").append(newdiv1);
 
 					// $("#yourCharacter").append("batmanDiv");
@@ -105,10 +189,10 @@
 					  newdiv2 = jQuery(this);
           			$("#yourCharacter").append(newdiv2);
 					// $("#yourCharacter").append("<img id='character_img_2' src='assets/images/joker.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_1' src='assets/images/batman_attacking.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_3' src='assets/images/superman.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_4' src='assets/images/scarecrow.jpg'/>");
 					
+					$("#enemiesAvailable").append(x[0]);
+					$("#enemiesAvailable").append(x[2]);
+					$("#enemiesAvailable").append(x[3]);
 			}
 
 			else if (divIndex === 2) {
@@ -120,9 +204,9 @@
 					  newdiv3 = jQuery(this);
           			$("#yourCharacter").append(newdiv3);
 					 //$("#yourCharacter").append("<img id='character_img_3' src='assets/images/superman.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_1' src='assets/images/batman_attacking.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_2' src='assets/images/joker.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_4' src='assets/images/scarecrow.jpg'/>");
+					$("#enemiesAvailable").append(x[0]);
+					$("#enemiesAvailable").append(x[1]);
+					$("#enemiesAvailable").append(x[3]);
 					
 			}
 
@@ -132,108 +216,211 @@
 					  newdiv4 = jQuery(this);
           			$("#yourCharacter").append(newdiv4);
 					 //$("#yourCharacter").append("<img id='character_img_4' src='assets/images/scarecrow.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_1' src='assets/images/batman_attacking.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_2' src='assets/images/joker.jpg'/>");
-					 $("#enemiesAvailable").append("<img id='character_img_3' src='assets/images/superman.jpg'/>");
-					
+					$("#enemiesAvailable").append(x[0]);
+					$("#enemiesAvailable").append(x[1]);
+					$("#enemiesAvailable").append(x[2]);
+
 			}
 
 		});
-
-
 
 			 $("#enemiesAvailable").on("click", "div" , function()
 
 			 {
 
-			 	alert("i'm inside enemy available");
+			 	if ( $(this).attr('id') == (x[0].id)) 
+			 	{
+			 		$("#defender_div").append(x[0]);
+			 	}
 
-			 
-			 		//$(this).hide();
-			 		var newdiv5= jQuery(this);
-			 		//$("#defender_div").append(newdiv5);
+			 	if ( $(this).attr('id') == (x[1].id)) 
+			 	{
 			 		$("#defender_div").append(x[1]);
+			 	}
+
+			 	if ( $(this).attr('id') == (x[2].id)) 
+			 	{
+			 		$("#defender_div").append(x[2]);
+			 	}
+
+			 	if ( $(this).attr('id') == (x[3].id)) 
+			 	{
+			 		$("#defender_div").append(x[3]);
+			 	}
+
 			 		//$(this).hide();
+			 		//var newdiv5= jQuery(this);
+			 		//$("#defender_div").append(newdiv5);
+			 		//$("#defender_div").append(x[1]);
 
 			 	//	console.log("this for enemies Available" + this);
 			 	//	var newArray = new Array (newdiv5);
-			 		console.log(newdiv5);
-			 		console.log(x[3]);
+			 	//	console.log(newdiv5);
+			 	//	console.log(x[3].id);
+			 	//	console.log($(this).attr('id'));
 			 		
      //$("#defender_div").append("<img id='character_img_1' src='assets/images/batman_attacking.jpg'/>");
 
 			 });
 
 
-			
 
 		  $("#attack_button").on("click", function()
 
 		  	{ 	
-		  		console.log("defenderId is " + defenderId);
-		  		console.log("divIndex is " + divIndex);
 
-		  	//if (defenderId == 'character_img_2' && divIndex === 0)
+		 	 if ( divIndex === 0 && ($("#defender_div div").attr('id')) ==='characterDiv-2' )
+		 		{	
+		 		// batman vs joker 
+		 		fighting (batman, joker,counter);
+		 		counter++;
+		 		}
 
-		  	if (x[1].id == 'characterDiv-2' && divIndex === 0)
+		 	 if ( divIndex === 0 && ($("#defender_div div").attr('id')) ==='characterDiv-3' )
 
-	  		{
+		 	 {	// batman vs superman 
+		 	 	fighting (batman, superman,counter);
+		 		counter++;
+		 	}
 
-		  		 enemyName = "Joker";
-
-		  		 totalPower =  batmanPower+(5*counter);
-
-		  		 console.log("total Power "+ totalPower);
-
-		  		 var newHealthBatman  = batmanHealth-(counter*jokerPower);
-
-		  		 console.log("joker Health  "+ jokerHealth);
-
-
-
-		  		 var newHealthJoker = jokerHealth-totalPower;
-
-		  		 jokerHealth = newHealthJoker;
+		 	if ( divIndex === 0 && ($("#defender_div div").attr('id')) ==='characterDiv-4' )
+		 	{
+		 		// batman vs scarecrow 
+		 		fighting (batman, scarecrow,counter);
+		 		counter++;
+		 	}
 
 
-		  		if (counter == 0) // for initial attack 
-		  		{	
+		 	if ( divIndex === 1 && ($("#defender_div div").attr('id')) ==='characterDiv-1' )
 
-		   			$("#yourCharacterFight").html("You attacked " + enemyName +"  for "+ batmanPower + " damage");
-		   			$("#enemyCharacterFight").html(" " + enemyName + " attacked you for "+ jokerPower + " damage");
-		  			
-		  		}
+		 	{// joker vs batman
+		 		fighting (joker, batman,counter);
+		 		counter++;
+		 	
+		 	}
 
-		  		if (counter > 0) // for cases when attacked more than once 
-		  		{
+		 	if ( divIndex === 1 && ($("#defender_div div").attr('id')) ==='characterDiv-3' )
+
+		 	{// joker vs superman
+		 		fighting (joker, superman,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 1 && ($("#defender_div div").attr('id')) ==='characterDiv-4' )
+
+		 	{// joker vs scarecrow
+		 		fighting (joker, scarecrow,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 2 && ($("#defender_div div").attr('id')) ==='characterDiv-1' )
+
+		 	{// superman vs batman
+		 		fighting (superman, batman,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 2 && ($("#defender_div div").attr('id')) ==='characterDiv-2' )
+
+		 	{// superman vs joker
+		 		fighting (superman, joker,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 2 && ($("#defender_div div").attr('id')) ==='characterDiv-4' )
+
+		 	{// superman vs scarecrow
+		 		fighting (superman, scarecrow,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 3 && ($("#defender_div div").attr('id')) ==='characterDiv-1' )
+
+		 	{// scarecrow vs batman
+		 		fighting (scarecrow, batman,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 3 && ($("#defender_div div").attr('id')) ==='characterDiv-2' )
+
+		 	{// scarecrow vs joker
+		 		fighting (scarecrow, joker,counter);
+		 		counter++;
+		 	
+		 	}
+
+		 	if ( divIndex === 3 && ($("#defender_div div").attr('id')) ==='characterDiv-3' )
+
+		 	{// scarecrow vs superman
+		 		fighting (scarecrow, superman,counter);
+		 		counter++;
+		 	
+		 	}
 
 
-		   			$("#yourCharacterFight").html("You attacked " + enemyName +"  for "+ totalPower +" damage");
-		   			$("#batman_health").html(" " + newHealthBatman +"  ");
+		  	// if (x[1].id == 'characterDiv-2' && divIndex === 0)
 
-		   			$("#enemyCharacterFight").html(" " + enemyName + " attacked you for "+ jokerPower+" damage");
-		   			$("#joker_health").html(" " + newHealthJoker +"  ");
+	  		// {
+		  	// 	 var batmanTotalPower = batman.totalPower(counter);
+		  		
+		  	// 	 console.log("total Power "+ batmanTotalPower);
 
-		   			if (newHealthJoker < 0 )
-		   			{
-		   				$("#yourCharacterFight").html("You defeated " + enemyName +
-		   					" You can choose to fight another enemy");
-		   				$("#enemyCharacterFight").html(" ");
+		  	// 	 var newHealthBatman  = batman.health-(counter*joker.attackPower);
+
+		  	// 	 console.log("joker Health  "+ joker.health);
+
+
+		  	// 	 var newHealthJoker = jokerHealthUpated-batmanTotalPower;
+
+		  	// 	 jokerHealthUpated = newHealthJoker;
+
+
+		  	// 	if (counter === 0) // for initial attack 
+		  	// 	{	
+		  	// 		var urChar = $("#yourCharacterFight");
+		  	// 		batman.whateverUWant = $("#yourCharacterFight");
+
+		  	// 		batman.whateverUWant.html("You attacked " + joker.name +"  for "+ batmanTotalPower + " damage");
+		   // 			$("#enemyCharacterFight").html(" " + joker.name + " attacked you for "+ joker.attackPower + " damage");
+
+		  	// 	}
+
+		  	// 	if (counter > 0) // for cases when attacked more than once 
+		  	// 	{
+
+
+		   // 			$("#yourCharacterFight").html("You attacked " + joker.name +"  for "+ batmanTotalPower +" damage");
+		   // 			$("#batman_health").html(" " + newHealthBatman +"  ");
+
+		   // 			$("#enemyCharacterFight").html(" " + joker.name + " attacked you for "+ joker.attackPower+" damage");
+		   // 			$("#joker_health").html(" " + newHealthJoker +"  ");
+
+		   // 			if (newHealthJoker < 0 )
+		   // 			{
+		   // 				$("#yourCharacterFight").html("You defeated " + joker.name +
+		   // 					" You can choose to fight another enemy");
+		   // 				$("#enemyCharacterFight").html(" ");
 		   				
-		   			}
+		   // 			}
 
-		   			if (newHealthBatman < 0 )
-		   			{
-		   				$("#yourCharacterFight").html("You have been defeated. GAME OVER!!! " );
-		   				$("#enemyCharacterFight").html(" ");
+		   // 			if (newHealthBatman < 0 )
+		   // 			{
+		   // 				$("#yourCharacterFight").html("You have been defeated. GAME OVER!!! " );
+		   // 				$("#enemyCharacterFight").html(" ");
 
-		   			}
+		   // 			}
 		  			
-		  		}
+		  	// 	}
 
-		  		counter++;
+		  	// 	counter++;
 
-		  	}
+		  	// }
 
 		  });
 
