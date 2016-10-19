@@ -13,8 +13,9 @@ body {
 #gameRPg{
 
 	font-size: 50px;
-	margin-left: 880px;
+	text-align: center;
 	color: red;
+	line-height: 65px;
 }
 
 
@@ -51,6 +52,7 @@ body {
 	height: 185px;
 	padding: 2px;
 	margin-left: 15px;
+
 }
 
 #enemiesAvailable
