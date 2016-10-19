@@ -4,50 +4,81 @@ body {
 	background-color: #cccccc;
 	font-family: Oldtown,fantasy;
 	color: gold;
+	margin: 0 auto;
+	
+
 }
 
+
+#gameRPg{
+
+	font-size: 50px;
+	margin-left: 880px;
+	color: red;
+}
 
 
 #character_img_1,#character_img_2,#character_img_3,#character_img_4 {
 
-	height: 80px;
+	height: 90px;
 	width: 180px;
-
+	/*border: solid 0.5px;
+*/
 }
 
 #characterDiv-1, #characterDiv-2,#characterDiv-3,#characterDiv-4
 
 {
-
-	height: 120px;
+	height: 140px;
 	width: 200px;
-	border: solid 1px;
+	border: solid 3px;
 	text-align: center;
 	padding: 5px;
-
-
+	margin-left: 15px;
 }
 
 #initialCharacters{
 
-	max-width: 960px;
-	height: 140px;
+	max-width: 1200px;
+	
 }
 
-#yourCharacter{
+#yourCharacter,#defender_div
+
+{
 
 	max-width: 960px;
-	height: 165px;
+	height: 185px;
+	padding: 2px;
+	margin-left: 15px;
 }
 
+#enemiesAvailable
 
-#enemiesAvailable{
-
+{
 	max-width: 960px;
-	/*height: 150px;*/
+	padding: 2px;
+	margin-left: 15px;
 }
+
+#defenderID{
+
+	margin-left: 15px;
+}
+
 
 h1 {
 
 	font-size: 20px;
+}
+
+.redcolor {
+
+	color: red;
+}
+
+.btn-group {
+
+	margin-left: 15px;
+	height: 50px;
 }
