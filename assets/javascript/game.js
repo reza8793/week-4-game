@@ -181,10 +181,12 @@ function fighting (urCharacter, theDefender,x,y)
 
 				if ( $(this).attr('id') == (x[0].id)) 
 			 	{
-			 		$("#yourCharacter").append(x[0]).addClass('red-color');
+			 		$("#yourCharacter").append(x[0]);
 			 		$("#enemiesAvailable").append(x[1]);
 					$("#enemiesAvailable").append(x[2]);
 					$("#enemiesAvailable").append(x[3]);
+					$("#enemiesAvailable div").css("background-color", "red");
+
 			 	}
 
 			 	if ( $(this).attr('id') == (x[1].id)) 
@@ -193,6 +195,7 @@ function fighting (urCharacter, theDefender,x,y)
 			 		$("#enemiesAvailable").append(x[0]);
 					$("#enemiesAvailable").append(x[2]);
 					$("#enemiesAvailable").append(x[3]);
+					$("#enemiesAvailable div").css("background-color", "red");
 			 	}
 
 			 	if ( $(this).attr('id') == (x[2].id)) 
@@ -201,6 +204,7 @@ function fighting (urCharacter, theDefender,x,y)
 			 		$("#enemiesAvailable").append(x[0]);
 					$("#enemiesAvailable").append(x[1]);
 					$("#enemiesAvailable").append(x[3]);
+					$("#enemiesAvailable div").css("background-color", "red");
 			 	}
 
 			 	if ( $(this).attr('id') == (x[3].id)) 
@@ -209,6 +213,7 @@ function fighting (urCharacter, theDefender,x,y)
 			 		$("#enemiesAvailable").append(x[0]);
 					$("#enemiesAvailable").append(x[1]);
 					$("#enemiesAvailable").append(x[2]);
+					$("#enemiesAvailable div").css("background-color", "red");
 			 	}
 
 		});
@@ -220,21 +225,25 @@ function fighting (urCharacter, theDefender,x,y)
 			 	if ( $(this).attr('id') == (x[0].id)) 
 			 	{
 			 		$("#defender_div").append(x[0]);
+			 		$("#defender_div div").css("background-color", "black");
 			 	}
 
 			 	if ( $(this).attr('id') == (x[1].id)) 
 			 	{
 			 		$("#defender_div").append(x[1]);
+			 		$("#defender_div div").css("background-color", "black");
 			 	}
 
 			 	if ( $(this).attr('id') == (x[2].id)) 
 			 	{
 			 		$("#defender_div").append(x[2]);
+			 		$("#defender_div div").css("background-color", "black");
 			 	}
 
 			 	if ( $(this).attr('id') == (x[3].id)) 
 			 	{
 			 		$("#defender_div").append(x[3]);
+			 		$("#defender_div div").css("background-color", "black");
 			 	}
 
 			 });	

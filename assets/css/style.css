@@ -22,7 +22,7 @@ body {
 #character_img_1,#character_img_2,#character_img_3,#character_img_4 {
 
 	height: 90px;
-	width: 180px;
+	width: 175px;
 	/*border: solid 0.5px;
 */
 }
@@ -31,7 +31,7 @@ body {
 
 {
 	height: 140px;
-	width: 200px;
+	width: 205px;
 	border: solid 3px;
 	text-align: center;
 	padding: 5px;
