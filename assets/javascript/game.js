@@ -150,6 +150,7 @@ function fighting (urCharacter, theDefender,x,y)
 			$("#initialCharacters").append(x[1]);
 			$("#initialCharacters").append(x[2]);
 			$("#initialCharacters").append(x[3]);
+			$("#initialCharacters div").css("background-color", "transparent");
 			
 
 			 $("#yourCharacter div").empty();
